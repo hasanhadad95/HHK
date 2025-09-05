@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - MonSite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <a href="index.html" class="logo">HHK Online</a>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENU -->
+  <main>
+    <h1>Contactez-nous</h1>
+    <p style="text-align:center; margin-bottom:20px;">
+      Remplissez ce formulaire et nous vous répondrons rapidement.
+    </p>
+
+    <form class="contact-form" 
+          action="https://formspree.io/f/xldwoyba" 
+          method="POST">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" rows="6" placeholder="Votre message" required></textarea>
+      
+      <!-- Redirection automatique vers merci.html -->
+      <input type="hidden" name="_redirect" value="merci.html">
+
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <footer>
+      <p>&copy; 2025 HHK Online. Tous droits réservés.</p>
+    </footer>
+  </main>
+
+</body>
+</html>
