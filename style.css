@@ -1,214 +1,38 @@
-/* ------------------------------
-   STYLE.CSS - Version sidebar verticale
-   ------------------------------ */
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap');
-
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Empêche le défilement sur le body */
+    background-color: #000;
+    font-family: sans-serif;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background: #f4f6f9;
-  color: #333;
-  line-height: 1.6;
-  display: flex;
+.app-container {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* La propriété clé pour l'effet de défilement TikTok */
 }
 
-/* ------------------------------
-   SIDEBAR (MENU VERTICAL)
-   ------------------------------ */
-.sidebar {
-  width: 240px;
-  height: 100vh;
-  background: #0a3d62;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding: 30px 20px;
-}
-
-.sidebar .logo {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 40px;
-  text-align: center;
-  color: #f1c40f;
-  text-decoration: none;
-}
-
-.sidebar ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.sidebar ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: 0.3s ease;
-}
-
-.sidebar ul li a:hover,
-.sidebar ul li a.active {
-  background: #f1c40f;
-  color: #0a3d62;
-}
-
-/* ------------------------------
-   MAIN CONTENT
-   ------------------------------ */
-main {
-  margin-left: 240px; /* laisser l’espace du menu */
-  padding: 40px;
-  flex: 1;
-}
-
-h1, h2 {
-  color: #0a3d62;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* ------------------------------
-   SECTION RECHERCHE
-   ------------------------------ */
-.search-section {
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.search-box {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  max-width: 600px;
-  margin: auto;
-}
-
-.search-box input[type="text"] {
-  flex: 1;
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  font-size: 1rem;
-}
-
-.search-box button {
-  background: #0a3d62;
-  color: #fff;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  font-weight: 500;
-}
-
-.search-box button:hover {
-  background: #f1c40f;
-  color: #0a3d62;
-}
-
-/* ------------------------------
-   FORMULAIRE CONTACT
-   ------------------------------ */
-.contact-form {
-  max-width: 600px;
-  margin: auto;
-  background: #fff;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #0a3d62;
-  outline: none;
-  box-shadow: 0 0 5px rgba(10,61,98,0.3);
-}
-
-.contact-form button {
-  background: #0a3d62;
-  color: #fff;
-  border: none;
-  padding: 14px 25px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: 0.3s ease;
-}
-
-.contact-form button:hover {
-  background: #f1c40f;
-  color: #0a3d62;
-}
-
-/* ------------------------------
-   FOOTER
-   ------------------------------ */
-footer {
-  text-align: center;
-  margin-top: 60px;
-  font-size: 0.9rem;
-  color: #777;
-}
-
-/* ------------------------------
-   RESPONSIVE
-   ------------------------------ */
-@media (max-width: 768px) {
-  body {
+.video-feed {
+    display: flex;
     flex-direction: column;
-  }
+    align-items: center;
+}
 
-  .sidebar {
+.video-container {
     width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: center;
+    height: 100vh;
+    scroll-snap-align: start; /* S'aligne au début du conteneur */
     position: relative;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
 
-  .sidebar ul {
-    flex-direction: row;
-    gap: 15px;
-  }
-
-  main {
-    margin-left: 0;
-    padding: 20px;
-  }
-
-  .search-box {
-    flex-direction: column;
-  }
-
-  .search-box button {
+.video-container video {
     width: 100%;
-  }
+    height: 100%;
+    object-fit: cover; /* Remplit le conteneur en rognant si nécessaire, comme TikTok */
 }
